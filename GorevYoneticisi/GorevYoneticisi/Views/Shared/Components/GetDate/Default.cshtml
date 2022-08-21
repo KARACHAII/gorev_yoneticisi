@@ -1,0 +1,13 @@
+﻿@model EntityLayer.Concrete.Plan
+@using(Html.BeginForm("Index","TableByDay",FormMethod.Post)){
+    
+    <h4 class="card-title text-success">Görüntülemek İstediğniz Günü Seçiniz.</h4>
+
+    <div class="form-group">
+        <label class="card-title text-info">Detaylar</label>
+        @Html.TextBoxFor(x=>x.PlanDay,new {@class="form-group",type="date"})
+    </div>
+    <div >
+        <button type="submit" id="getbydate" class="btn btn-inverse-success btn-fw">Göster</button>
+    </div>
+}

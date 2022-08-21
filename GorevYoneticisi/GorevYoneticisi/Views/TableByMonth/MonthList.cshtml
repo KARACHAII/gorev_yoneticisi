@@ -1,0 +1,66 @@
+﻿@using EntityLayer.Concrete
+@model List<Plan>
+@{
+    ViewData["Title"] = "MonthList";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<div class="container-scroller">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            @using (Html.BeginForm("MonthList", "TableByMonth", FormMethod.Post))
+                            {
+                                <h4 class="card-title">Plan tarihi seç</h4>
+                               
+                                
+                                <div class="form-group">
+                                    <label>Tarih Belirle</label>
+                                    <input class="form-group" type="month" name="datee"/>
+
+                                </div>
+                                <button type="submit" class="btn btn-gradient-danger mr-2">Göster</button>
+                            }
+                        </div>
+                        
+                        <div class="card-body">
+                            <h4 class="card-title">@ViewBag.MonthName Ayı Plan Listesi</h4>
+     
+                            <table class="table table-dark">
+                                <thead>
+                                <tr>
+                                    <th> Plan Saati </th>
+                                    <th> Plan Başlığı </th>
+                                    <th> Plan Detayı </th>
+                            
+                                </thead>
+                                <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.PlanDay.ToString("f") </td>
+                                        <td> @item.PlanTitle </td>
+                                        <td> @item.PlanContent </td>
+                                 
+                    
+
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                        
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

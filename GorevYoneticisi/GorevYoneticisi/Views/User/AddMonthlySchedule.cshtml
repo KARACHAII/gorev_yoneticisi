@@ -1,0 +1,55 @@
+﻿@model EntityLayer.Concrete.Plan
+@{
+    ViewData["Title"] = "AddMonthlySchedule";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+<div class="container-scroller">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            @using (Html.BeginForm("AddMonthlySchedule", "User", FormMethod.Post))
+                            {
+                                <h4 class="card-title">Aylık Plan oluştur</h4>
+                               
+                                <div class="form-group">
+                                    <label>Tarih</label>
+                                    @Html.TextBoxFor(x => x.PlanDay, new {@class = "form-group", type = "month"})
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Saat</label>
+                                    <input class="form-group" type="time" name="timee"/>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Başlık</label>
+                                    @Html.TextBoxFor(x => x.PlanTitle, new {@class = "form-control form-control-sm", type = "text", @placeholder = "Başlık"})
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Detaylar</label>
+                                    @Html.TextBoxFor(x => x.PlanContent, new {@class = "form-control form-control-sm", type = "text", @placeholder = "Detaylar"})
+
+                                </div>
+                                <button type="submit" class="btn btn-gradient-danger mr-2">Planla</button>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

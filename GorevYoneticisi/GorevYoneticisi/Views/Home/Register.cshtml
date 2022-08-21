@@ -1,0 +1,49 @@
+﻿@model EntityLayer.Concrete.User
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/writer/assets/css/style.css">
+<div class="container-scroller">
+
+    <div class="card">
+        <div class="card-body">
+
+            
+                @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">İsim</label>
+                        @Html.TextBoxFor(x=>x.FirstName,new {@class="form-control" ,@placeholder="isim"})
+                        @Html.ValidationMessageFor(x=>x.FirstName)
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Soyisim</label>
+                        @Html.TextBoxFor(x=>x.LastName,new {@class="form-control" ,@placeholder="Soyisim"})
+                        @Html.ValidationMessageFor(x=>x.LastName)
+                       </div>
+                    <div class="form-group">
+                        <label for="exampleInputUsername1">Kullanıcı Adı</label>
+                        @Html.TextBoxFor(x=>x.UserName,new {@class="form-control" ,@placeholder="en az 5 karakter"})
+                        @Html.ValidationMessageFor(x=>x.UserName)
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Şifre</label>
+                        @Html.TextBoxFor(x=>x.UserPassword,new {@class="form-control" ,@placeholder="en az 6 karakter",@type="password"})
+                        @Html.ValidationMessageFor(x=>x.UserPassword)
+                        
+                    </div>
+
+                    <button type="submit" id="registerButton" class="btn btn-gradient-primary mr-2">Gönder</button>
+                    
+                }
+                <script>
+
+                </script>
+            
+        </div>
+    </div>
+</div>
+

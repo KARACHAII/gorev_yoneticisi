@@ -1,0 +1,48 @@
+﻿@using System.Security.Cryptography.X509Certificates
+@model EntityLayer.Concrete.Plan
+@{
+    ViewData["Title"] = "EditPlan";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            @using (Html.BeginForm("EditPlan", "TableByDay", FormMethod.Post))
+            {
+
+                <h4>@ViewBag.dayName günü Saat:@ViewBag.dayTime İçin Planı Düzenle</h4>
+
+                <br />
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Plan ID</label>
+                        @Html.TextBoxFor(x => x.PlanID, new {@class = "form-control",})
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Kullanıcı ID</label>
+                        @Html.TextBoxFor(x => x.UserID, new {@class = "form-control",})
+                    </div>
+
+                    <label for="exampleInputName1">Yeni Tarih ve Saat Belirle</label>
+                    @Html.TextBoxFor(x => x.PlanDay, new {@class = "form-control", @type = "datetime-local"})
+
+
+                    <div class="form-group">
+                        <label for="exampleInputName1">Plan Başlığı</label>
+                        @Html.TextBoxFor(x => x.PlanTitle, new {@class = "form-control"})
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputName1">Plan İçeriği</label>
+                        @Html.TextBoxFor(x => x.PlanContent, new {@class = "form-control"})
+                    </div>
+                </div>
+           
+                <button type="submit" class="btn btn-gradient-primary mr-2">Değiştir Ve Kaydet</button>
+                <button class="btn btn-light">Cancel</button>
+            }
+        </div>
+    </div>
+</div>
+
